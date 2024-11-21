@@ -1,0 +1,10 @@
+docker-compose up --build
+
+Invoke-WebRequest -Uri "http://localhost:8000/users/" `
+                  -Method POST `
+                  -Headers @{"Content-Type" = "application/json"} `
+                  -Body '{"email": "user@example.com", "full_name": "John Doe"}'
+
+Invoke-WebRequest -Uri "http://localhost:8000/users/user@example.com" -Method GET
+
+Invoke-WebRequest -Uri "http://localhost:8000/users/" -Method GET
